@@ -67,7 +67,7 @@ def output_summary():
         d['debut'][index] = works[song['debut']]['title']
         d['date'][index] = works[song['debut']]['release']
 
-    with open('summary.json', 'w', encoding='utf8') as jf:
+    with open('data/summary.json', 'w', encoding='utf8') as jf:
         json.dump(d, jf, ensure_ascii=False)
 
     pandas.DataFrame(d)[['no',
@@ -95,9 +95,9 @@ def output_summary():
                          'r2018',
                          'r2019u',
                          'r2019',
-                         'remarks']].to_csv('summary.csv',
-                                          index=False,
-                                          encoding='utf8')
+                         'remarks']].to_csv('data/summary.csv',
+                                            index=False,
+                                            encoding='utf8')
 
     # works.json
     kinds = info['kinds']
@@ -110,7 +110,7 @@ def output_summary():
         d['title'] += [work['title']]
         d['kind'] += [work['kind']]
         d['date'] += [work['release']]
-    with open('works.json', 'w', encoding='utf8') as jf:
+    with open('data/works.json', 'w', encoding='utf8') as jf:
         json.dump(d, jf, ensure_ascii=False)
 
 
